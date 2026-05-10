@@ -37,10 +37,8 @@ Performed data transformation inside the Warehouse using:
 ### Step 5 — Semantic Model
 * Created a reusable Semantic Model from the Warehouse:
  * Defined table relationships (Star Schema)
- * Wrote DAX measures (Total Sales, YTD Revenue, % Growth)
- * Built hierarchies (Year → Quarter → Month)
- * Configured column formats and hid technical fields
-
+ * Wrote DAX measures.
+   
 ### Step 6 — Dashboard (3 Approaches)
 Built the same dashboard three different ways.
 See [Dashboard Approaches](#dashboard-approaches) below.
