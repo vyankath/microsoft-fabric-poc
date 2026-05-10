@@ -134,39 +134,14 @@ FABRIC DATA ACCESS APPROACHES
 * Performance     : Fast
 * Data Freshness  : Requires scheduled/manual refresh
 * Best For        : Maximum performance and faster dashboards
-------------------------------------------------------------
-FABRIC LICENSE TIERS As on Apr 2026
-------------------------------------------------------------
-
-1. Free Trial
-* Fabric Workloads: Full access available
-* Best For        : Evaluation, learning, and proof of concept (POC)
-* Limitation      : Expires after 60 days
---------------------------------------------------------
-2. Power BI Pro
-* Fabric Workloads: Not included
-* Best For        : Standard BI reporting
-* Limitation      : No Microsoft Fabric features
---------------------------------------------------------
-3. Premium Per User (PPU)
-* Fabric Workloads: Enabled
-* Best For        : Small teams and advanced users
-* Limitation      : Can become costly at larger scale
---------------------------------------------------------
-4. F-SKUs (Fabric Capacity)
-* Fabric Workloads: Enterprise-grade access
-* Best For        : Organization-wide deployment
-* Limitation      : Capacity sizing and management can be complex
-
----
-
+-----------------------------------------------------------
 ## 🛠️ Prerequisites
 
 * Microsoft Fabric Trial or licensed workspace
-*  Power BI Desktop (for Approach 2 & 3)
+* Power BI Desktop (for Approach 2 & 3)
 * CSV source files (place under `/data/raw/`)
 
----
+------------------------------------------------------------
 
 ## 📎 Resources
 
