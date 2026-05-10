@@ -7,7 +7,7 @@
 * This POC demonstrates how to build a full analytics pipeline entirely within Microsoft Fabric — from raw CSV files to live Power BI dashboards without leaving the platform.
 
 **Pipeline Flow:**
-
+-------------------------------------------------------------------------------------------
 CSV Files → Lakehouse → Data Pipeline → Warehouse → Data Preparation
 → Semantic Model → Power BI Dashboard (3 approaches) >>  Fabric Web, DirectQuery, Import Mode
 ---------------------------------------------------------------------------------------------
@@ -48,8 +48,12 @@ See [Dashboard Approaches](#dashboard-approaches) below.
 ## Dashboard Approaches
 
 ### Approach 1 — Fabric Web (Semantic Model)
-* Built the report directly in the browser by connecting to the
-* Semantic Model → completed dashboard → downloaded as .pbix.
+## How it was built
+1. Opened the Semantic Model in the Fabric workspace
+2. Clicked "Create Report" — launched browser-based Power BI editor
+3. Built visuals using drag and drop from the field list
+4. Added slicers, cards, bar charts, and line charts
+5. Saved the report → File → Download this file (.pbix)
 
 **Pros:**
 * No Power BI Desktop install required
@@ -63,7 +67,13 @@ See [Dashboard Approaches](#dashboard-approaches) below.
 ---
 
 ### Approach 2 — Power BI Desktop (DirectQuery via Semantic Model)
-* Connected Power BI Desktop to the published Semantic Model using DirectQuery mode. Every visual interaction sends a live query to the Warehouse — no data stored inside the .pbix file.
+## How it was built
+1. Opened Power BI Desktop
+2. Get Data → Power BI Semantic Models
+3. Selected the published Semantic Model from Fabric workspace
+4. Chose "DirectQuery" mode when prompted
+5. Built all visuals — every interaction fires a live query to Warehouse
+6. Saved the .pbix file
 
 **Pros:**
 * Always shows current/live data
@@ -78,7 +88,15 @@ See [Dashboard Approaches](#dashboard-approaches) below.
 ---
 
 ### Approach 3 — Power BI Desktop (Import Mode from Warehouse)
-Connected Power BI Desktop directly to the Warehouse SQL endpoint and imported data into the .pbix in-memory engine. Built full model, relationships, and DAX inside Desktop.
+## How it was built
+1. Opened Power BI Desktop
+2. Get Data → Microsoft Fabric → Warehouse
+3. Entered the Warehouse SQL endpoint URL
+4. Selected required tables → chose Import mode
+5. Built relationships, DAX measures, and hierarchies inside Desktop
+6. Designed all visuals and formatted the dashboard
+7. Saved the .pbix file
+8. Published to Power BI Service for scheduled refresh
 
 **Pros:**
 * Fastest report performance
