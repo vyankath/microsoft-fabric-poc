@@ -10,6 +10,86 @@
 
 CSV Files → Lakehouse → Data Pipeline → Warehouse → Data Preparation
 → Semantic Model → Power BI Dashboard (3 approaches) >>  Fabric Web, DirectQuery, Import Mode
+---------------------------------------------------------------------------------------------
+## Step by Step Walkthrough
+
+### Step 1 — Workspace Setup
+* Created a dedicated Fabric workspace with Fabric Capacity license mode.
+* All items — Lakehouse, Warehouse, Pipeline, Semantic Model, and Reports — live here under one roof sharing a single OneLake storage layer.
+
+### Step 2 — Lakehouse & CSV Upload
+* Created a Lakehouse and uploaded an entire folder of CSV files into the
+* Files section of OneLake. The Lakehouse provides two layers:
+  * **Files** — raw file storage
+  * **Tables** — managed Delta tables (auto-converted from CSV)
+
+### Step 3 — Data Pipeline
+* Built a Data Pipeline using the Copy Data activity to move data from the
+* Lakehouse into the Fabric Warehouse.
+  * Source: Lakehouse Files / Delta Tables
+  * Destination: Fabric Warehouse
+  * Configured column mappings, data types, and write mode (Overwrite)
+
+### Step 4 — Data Preparation
+Performed data transformation inside the Warehouse using:
+  * **SQL Queries** — cleaned nulls, fixed types, renamed columns
+
+### Step 5 — Semantic Model
+* Created a reusable Semantic Model from the Warehouse:
+ * Defined table relationships (Star Schema)
+ * Wrote DAX measures (Total Sales, YTD Revenue, % Growth)
+ * Built hierarchies (Year → Quarter → Month)
+ * Configured column formats and hid technical fields
+
+### Step 6 — Dashboard (3 Approaches)
+Built the same dashboard three different ways.
+See [Dashboard Approaches](#dashboard-approaches) below.
+
+## Dashboard Approaches
+
+### Approach 1 — Fabric Web (Semantic Model)
+* Built the report directly in the browser by connecting to the
+* Semantic Model → completed dashboard → downloaded as .pbix.
+
+**Pros:**
+* No Power BI Desktop install required
+* Instantly connected to Semantic Model
+* Easy browser-based collaboration
+
+**Cons:**
+* Limited advanced modeling features
+* No offline editing
+* Less flexible than Desktop
+---
+
+### Approach 2 — Power BI Desktop (DirectQuery via Semantic Model)
+* Connected Power BI Desktop to the published Semantic Model using DirectQuery mode. Every visual interaction sends a live query to the Warehouse — no data stored inside the .pbix file.
+
+**Pros:**
+* Always shows current/live data
+* No data duplication in .pbix
+* Inherits model-level row-level security
+
+**Cons:**
+* Slower interactive performance
+* Requires constant internet connection
+* Higher query load on the Warehouse
+
+---
+
+### Approach 3 — Power BI Desktop (Import Mode from Warehouse)
+Connected Power BI Desktop directly to the Warehouse SQL endpoint and imported data into the .pbix in-memory engine. Built full model, relationships, and DAX inside Desktop.
+
+**Pros:**
+* Fastest report performance
+* Works offline after import
+* Full DAX and modeling capability
+
+**Cons:**
+* Data goes stale without scheduled refresh
+* Larger .pbix file size
+* Risk of data duplication
+---
 
 ## 📊 Dashboard Approaches — Comparison
 ---------------------------------------------------------
