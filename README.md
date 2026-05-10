@@ -18,7 +18,7 @@ CSV Files → Lakehouse → Data Pipeline → Warehouse → Data Preparation
 ## 📊 Dashboard Approaches — Comparison
 
 ==================================
-   FABRIC DATA ACCESS APPROACHES
+FABRIC DATA ACCESS APPROACHES
 ==================================
 
 1. Approach 1 – Fabric Web
@@ -43,7 +43,7 @@ Data Freshness  : Requires scheduled/manual refresh
 Best For        : Maximum performance and faster dashboards
 
 ========================================
-  FABRIC LICENSE TIERS As on Apr 2026
+FABRIC LICENSE TIERS As on Apr 2026
 ========================================
 
 1. Free Trial
